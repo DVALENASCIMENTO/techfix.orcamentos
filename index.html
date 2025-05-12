@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Orçamento de Manutenção</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Imagem no topo -->
+  <header>
+    <img src="logo.png" alt="Logo TechFix Solutions" style="max-width: 200px; display: block; margin: 0 auto 20px;">
+  </header>
+
+  <h2>Formulário de Solicitação de Orçamento</h2>
+
+  <form id="orcamentoForm">
+    <fieldset>
+      <legend>Informações do Cliente</legend>
+      <label>Nome: <input type="text" name="nome" required></label>
+      <label>Telefone / WhatsApp: <input type="text" name="telefone"></label>
+      <label>Email: <input type="email" name="email"></label>
+      <label>Endereço: <input type="text" name="endereco"></label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Informações do Equipamento</legend>
+      <label>Tipo:
+        <select name="tipo">
+          <option>Notebook</option>
+          <option>PC</option>
+        </select>
+      </label>
+
+      <label>Marca:
+        <select name="marca">
+          <option value="Acer">Acer</option>
+          <option value="Asus">Asus</option>
+          <option value="Avell">Avell</option>
+          <option value="Dell">Dell</option>
+          <option value="HP">HP</option>
+          <option value="Lenovo">Lenovo</option>
+          <option value="LG">LG</option>
+          <option value="Positivo">Positivo</option>
+          <option value="Samsung">Samsung</option>
+          <option value="Vaio">Vaio</option>
+          <option value="Outros">Outros</option>
+        </select>
+      </label>
+
+      <label>Modelo: <input type="text" name="modelo"></label>
+
+      <label>Sistema Operacional:
+        <select name="so">
+          <option value="Windows 11">Windows 11</option>
+          <option value="Windows 10">Windows 10</option>
+          <option value="Windows 8.1">Windows 8.1</option>
+          <option value="Windows 7">Windows 7</option>
+          <option value="Linux Ubuntu">Linux Ubuntu</option>
+          <option value="Linux Mint">Linux Mint</option>
+          <option value="Linux Fedora">Linux Fedora</option>
+          <option value="Linux Debian">Linux Debian</option>
+          <option value="macOS">macOS</option>
+          <option value="Chrome OS">Chrome OS</option>
+          <option value="Outros">Outros</option>
+        </select>
+      </label>
+
+      <label>Tempo de uso: <input type="text" name="uso"></label>
+
+      <label>Já passou por manutenção?
+        <select name="manutencao">
+          <option>Sim</option>
+          <option>Não</option>
+        </select>
+      </label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Descrição do Problema</legend>
+      <label>Descreva o problema:
+        <textarea name="problema" rows="4" required></textarea>
+      </label>
+      <label>Quando começou: <input type="text" name="quando"></label>
+      <label>Frequência:
+        <select name="frequencia">
+          <option>Sempre</option>
+          <option>Às vezes</option>
+          <option>Ao ligar</option>
+          <option>Durante o uso</option>
+        </select>
+      </label>
+      <label>Mensagem de erro?
+        <select name="erro">
+          <option>Não</option>
+          <option>Sim</option>
+        </select>
+      </label>
+      <label>Mensagem (se houver): <input type="text" name="mensagem"></label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Itens para o Orçamento</legend>
+      <label>Selecione os serviços desejados (Ctrl ou Cmd para múltiplos):
+        <select name="itens[]" multiple size="10">
+          <option value="Formatação">Formatação do sistema</option>
+          <option value="Remoção de vírus">Remoção de vírus e malwares</option>
+          <option value="Instalação de drivers">Instalação de drivers</option>
+          <option value="Instalação de programas">Instalação de programas</option>
+          <option value="Limpeza interna">Limpeza interna completa</option>
+          <option value="Limpeza externa">Limpeza externa</option>
+          <option value="Troca de pasta térmica">Troca de pasta térmica</option>
+          <option value="Upgrade para SSD">Upgrade de HD para SSD</option>
+          <option value="Substituição de HD/SSD">Substituição de HD/SSD</option>
+          <option value="Expansão de memória RAM">Expansão de memória RAM</option>
+          <option value="Troca de tela">Troca de tela quebrada</option>
+          <option value="Troca de teclado">Troca de teclado</option>
+          <option value="Troca de bateria">Substituição de bateria</option>
+          <option value="Substituição de carregador">Substituição de carregador</option>
+          <option value="Backup de dados">Backup de dados</option>
+          <option value="Recuperação de dados">Recuperação de dados</option>
+          <option value="Reparo em placa-mãe">Reparo em placa-mãe</option>
+          <option value="Troca de cooler">Substituição de cooler</option>
+          <option value="Atualização de BIOS">Atualização de BIOS</option>
+          <option value="Remoção de senha BIOS/Windows">Remoção de senha de BIOS ou Windows</option>
+        </select>
+      </label>
+      <label>Outros: <input type="text" name="outros"></label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Informações Adicionais</legend>
+      <label>Autoriza abertura do equipamento?
+        <select name="autorizacao">
+          <option>Sim</option>
+          <option>Não</option>
+        </select>
+      </label>
+      <label>Deseja backup de arquivos?
+        <select name="backup">
+          <option>Não</option>
+          <option>Sim</option>
+        </select>
+      </label>
+      <label>Observações:
+        <textarea name="observacoes" rows="3"></textarea>
+      </label>
+    </fieldset>
+
+    <!-- Botões de ação -->
+    <div style="margin-top: 20px;">
+      <button type="button" onclick="mostrarOpcoesEnvio()">Enviar</button>
+      <button type="button" onclick="exportarPDF()">Exportar para PDF</button>
+    </div>
+  </form>
+
+  <!-- Div para exibir resumo ou mensagens -->
+  <div id="resumo"></div>
+
+  <!-- Opções de envio (inicialmente ocultas) -->
+  <div id="opcoesEnvio" style="display: none; margin-top: 20px; text-align: center;">
+    <p>Escolha o método de envio:</p>
+    <button onclick="enviarEmail()">Enviar por Email</button>
+    <button onclick="enviarWhatsApp()">Enviar por WhatsApp</button>
+  </div>
+  
+  <p><a href="https://techfixsolutions.com.br" target="_blank">Visite a página da TechFix Solutions</a></p>
+
+  <!-- Rodapé -->
+  <footer style="text-align: center; margin-top: 40px;">
+    <p>Diego Nascimento - TechFix Solutions</p>
+    <p>
+      <a href="https://www.linkedin.com/in/diegonascimento" target="_blank">LinkedIn</a> |
+      <a href="https://github.com/diegonascimento" target="_blank">GitHub</a>
+    </p>
+    
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
