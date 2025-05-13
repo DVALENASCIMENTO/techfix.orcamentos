@@ -162,17 +162,36 @@
     </fieldset>
 
     <fieldset>
-      <legend>Itens para o Orçamento</legend>
-      <label data-tooltip="Segure Ctrl (ou Cmd) para escolher vários serviços">
-        Selecione os serviços desejados <span class="obrigatorio">*</span>:
-        <select name="itens[]" id="itens" multiple size="10" required>
-          <!-- opções omitidas para brevidade -->
-        </select>
-      </label>
-      <label data-tooltip="Descreva outro serviço, se não estiver na lista">
-        Outros: <input type="text" name="outros">
-      </label>
-    </fieldset>
+        <legend>Itens para o Orçamento</legend>
+        <label data-tooltip="Segure Ctrl (ou Cmd) para escolher vários serviços">
+          Selecione os serviços desejados <span class="obrigatorio">*</span>:
+          <select name="itens[]" id="itens" multiple size="10" required>
+            <option value="Formatação">Formatação do sistema</option>
+            <option value="Remoção de vírus">Remoção de vírus e malwares</option>
+            <option value="Instalação de drivers">Instalação de drivers</option>
+            <option value="Instalação de programas">Instalação de programas</option>
+            <option value="Limpeza interna">Limpeza interna completa</option>
+            <option value="Limpeza externa">Limpeza externa</option>
+            <option value="Troca de pasta térmica">Troca de pasta térmica</option>
+            <option value="Upgrade para SSD">Upgrade de HD para SSD</option>
+            <option value="Substituição de HD/SSD">Substituição de HD/SSD</option>
+            <option value="Expansão de memória RAM">Expansão de memória RAM</option>
+            <option value="Troca de tela">Troca de tela quebrada</option>
+            <option value="Troca de teclado">Troca de teclado</option>
+            <option value="Troca de bateria">Substituição de bateria</option>
+            <option value="Substituição de carregador">Substituição de carregador</option>
+            <option value="Backup de dados">Backup de dados</option>
+            <option value="Recuperação de dados">Recuperação de dados</option>
+            <option value="Reparo em placa-mãe">Reparo em placa-mãe</option>
+            <option value="Troca de cooler">Substituição de cooler</option>
+            <option value="Atualização de BIOS">Atualização de BIOS</option>
+            <option value="Remoção de senha BIOS/Windows">Remoção de senha de BIOS ou Windows</option>
+          </select>
+        </label>
+        <label data-tooltip="Descreva outro serviço, se não estiver na lista">
+          Outros: <input type="text" name="outros">
+        </label>
+      </fieldset>
 
     <fieldset>
       <legend>Informações Adicionais</legend>
