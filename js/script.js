@@ -1,8 +1,7 @@
-// Atualiza dinamicamente os serviços selecionados com opção de remoção
 document.addEventListener("DOMContentLoaded", function () {
     const selectItens = document.getElementById("itens");
     const outrosInput = document.querySelector("input[name='outros']");
-    const containerSelecionados = document.createElement("div");
+    const containerSelecionados = document.getElementById("listaSelecionados");
     containerSelecionados.id = "itensSelecionados";
     selectItens.parentElement.appendChild(containerSelecionados);
   
@@ -59,16 +58,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const camposObrigatorios = form.querySelectorAll("[required]");
     let primeiroInvalido = null;
   
-    // Remove tooltips antigos
     document.querySelectorAll(".tooltip-erro").forEach(el => el.remove());
   
     camposObrigatorios.forEach(campo => {
       if (!campo.value.trim()) {
         campo.classList.add("campo-invalido");
         mostrarErroCampo(campo, "Este campo é obrigatório");
-        if (!primeiroInvalido) {
-          primeiroInvalido = campo;
-        }
+        if (!primeiroInvalido) primeiroInvalido = campo;
       } else {
         campo.classList.remove("campo-invalido");
       }
