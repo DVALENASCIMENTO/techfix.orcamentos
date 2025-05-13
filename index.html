@@ -4,10 +4,20 @@
   <meta charset="UTF-8">
   <title>Orçamento de Manutenção</title>
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    .campo-invalido {
+      border: 2px solid red !important;
+      background-color: #ffe5e5;
+    }
+    label span.obrigatorio {
+      color: red;
+      font-weight: bold;
+      margin-left: 4px;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Imagem no topo -->
   <header>
     <img src="logo.png" alt="Logo TechFix Solutions" style="max-width: 200px; display: block; margin: 0 auto 20px;">
   </header>
@@ -17,23 +27,25 @@
   <form id="orcamentoForm">
     <fieldset>
       <legend>Informações do Cliente</legend>
-      <label>Nome: <input type="text" name="nome" required></label>
-      <label>Telefone / WhatsApp: <input type="text" name="telefone"></label>
-      <label>Email: <input type="email" name="email"></label>
+      <label>Nome<span class="obrigatorio">*</span>: <input type="text" name="nome" id="nome" required></label>
+      <label>Telefone / WhatsApp <span class="obrigatorio">*</span>: <input type="text" name="telefone" id="telefone" required></label>
+      <label>Email<span class="obrigatorio">*</span>: <input type="email" name="email" id="email" required></label>
       <label>Endereço: <input type="text" name="endereco"></label>
     </fieldset>
 
     <fieldset>
       <legend>Informações do Equipamento</legend>
-      <label>Tipo:
-        <select name="tipo">
+      <label>Tipo <span class="obrigatorio">*</span>:
+        <select name="tipo" id="tipo" required>
+          <option value="">Selecione</option>
           <option>Notebook</option>
           <option>PC</option>
         </select>
       </label>
 
-      <label>Marca:
-        <select name="marca">
+      <label>Marca <span class="obrigatorio">*</span>:
+        <select name="marca" id="marca" required>
+          <option value="">Selecione</option>
           <option value="Acer">Acer</option>
           <option value="Asus">Asus</option>
           <option value="Avell">Avell</option>
@@ -48,10 +60,11 @@
         </select>
       </label>
 
-      <label>Modelo: <input type="text" name="modelo"></label>
+      <label>Modelo <span class="obrigatorio">*</span>: <input type="text" name="modelo" id="modelo" required></label>
 
-      <label>Sistema Operacional:
-        <select name="so">
+      <label>Sistema Operacional <span class="obrigatorio">*</span>:
+        <select name="so" id="so" required>
+          <option value="">Selecione</option>
           <option value="Windows 11">Windows 11</option>
           <option value="Windows 10">Windows 10</option>
           <option value="Windows 8.1">Windows 8.1</option>
@@ -78,8 +91,8 @@
 
     <fieldset>
       <legend>Descrição do Problema</legend>
-      <label>Descreva o problema:
-        <textarea name="problema" rows="4" required></textarea>
+      <label>Descreva o problema <span class="obrigatorio">*</span>:
+        <textarea name="problema" id="problema" rows="4" required></textarea>
       </label>
       <label>Quando começou: <input type="text" name="quando"></label>
       <label>Frequência:
@@ -101,8 +114,8 @@
 
     <fieldset>
       <legend>Itens para o Orçamento</legend>
-      <label>Selecione os serviços desejados (Ctrl ou Cmd para múltiplos):
-        <select name="itens[]" multiple size="10">
+      <label>Selecione os serviços desejados (Ctrl ou Cmd para múltiplos) <span class="obrigatorio">*</span>:
+        <select name="itens[]" id="itens" multiple size="10" required>
           <option value="Formatação">Formatação do sistema</option>
           <option value="Remoção de vírus">Remoção de vírus e malwares</option>
           <option value="Instalação de drivers">Instalação de drivers</option>
@@ -130,8 +143,9 @@
 
     <fieldset>
       <legend>Informações Adicionais</legend>
-      <label>Autoriza abertura do equipamento?
-        <select name="autorizacao">
+      <label>Autoriza abertura do equipamento? <span class="obrigatorio">*</span>
+        <select name="autorizacao" id="autorizacao" required>
+          <option value="">Selecione</option>
           <option>Sim</option>
           <option>Não</option>
         </select>
@@ -147,33 +161,28 @@
       </label>
     </fieldset>
 
-    <!-- Botões de ação -->
     <div style="margin-top: 20px;">
       <button type="button" onclick="mostrarOpcoesEnvio()">Enviar</button>
       <button type="button" onclick="exportarPDF()">Exportar para PDF</button>
     </div>
   </form>
 
-  <!-- Div para exibir resumo ou mensagens -->
   <div id="resumo"></div>
 
-  <!-- Opções de envio (inicialmente ocultas) -->
   <div id="opcoesEnvio" style="display: none; margin-top: 20px; text-align: center;">
     <p>Escolha o método de envio:</p>
     <button onclick="enviarEmail()">Enviar por Email</button>
     <button onclick="enviarWhatsApp()">Enviar por WhatsApp</button>
   </div>
-  
+
   <p><a href="https://techfixsolutions.com.br" target="_blank">Visite a página da TechFix Solutions</a></p>
 
-  <!-- Rodapé -->
   <footer style="text-align: center; margin-top: 40px;">
     <p>Diego Nascimento - TechFix Solutions</p>
     <p>
       <a href="https://www.linkedin.com/in/diegonascimento" target="_blank">LinkedIn</a> |
       <a href="https://github.com/diegonascimento" target="_blank">GitHub</a>
     </p>
-    
   </footer>
 
   <script src="js/script.js"></script>
