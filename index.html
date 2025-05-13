@@ -163,9 +163,10 @@
 
     <fieldset>
         <legend>Itens para o Orçamento</legend>
-        <label data-tooltip="Segure Ctrl (ou Cmd) para escolher vários serviços">
+        <label data-tooltip="Selecione os serviços desejados">
           Selecione os serviços desejados <span class="obrigatorio">*</span>:
-          <select name="itens[]" id="itens" multiple size="10" required>
+          <select name="itens" id="itens" required>
+            <option value="">Selecione</option>
             <option value="Formatação">Formatação do sistema</option>
             <option value="Remoção de vírus">Remoção de vírus e malwares</option>
             <option value="Instalação de drivers">Instalação de drivers</option>
@@ -192,7 +193,7 @@
           Outros: <input type="text" name="outros">
         </label>
       </fieldset>
-
+      
     <fieldset>
       <legend>Informações Adicionais</legend>
       <label data-tooltip="Autoriza a abertura do equipamento para diagnóstico?">
